@@ -5,7 +5,6 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const rfs = require('rotating-file-stream')
-const pagination = require('./middlewares/pagination')
 const cors = require('cors')
 const app = express()
 
@@ -23,7 +22,6 @@ var accessLogStream = rfs.createStream('access.log', {
   path: path.join(__dirname, 'log')
 })
 app.use(morgan('combined', { stream: accessLogStream }))
-app.use(pagination)
 app.use((req, res, next) => {
   console.log('------------------------------------------------------');
   console.log('req', req.method, req.originalUrl);
@@ -34,11 +32,9 @@ app.use((req, res, next) => {
 })
 
 // 2. router
-const parameterRouter = require('./routers/parameter')
 const classRouter = require('./routers/class')
 const studentRouter = require('./routers/student')
 
-app.use('/api/v1/parameter', parameterRouter);
 app.use('/api/v1/class', classRouter);
 app.use('/api/v1/student', studentRouter);
 

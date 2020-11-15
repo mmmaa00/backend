@@ -4,18 +4,18 @@ const classController = require('../controllers/class')
 const { tryCatch } = require('../middlewares/errorHandle')
 
 R.get('/',
-  tryCatch(classController.getAllClass))
+  tryCatch(classController.getAll))
 
 R.get('/:id',
-  tryCatch(classController.getClassById))
+  tryCatch(classController.getById))
 
-R.post('/',
-  tryCatch(classController.createClass))
+// R.post('/',
+//   tryCatch(classController.createClass))
 
-R.put('/:id',
-  tryCatch(classController.updateClass))
+// R.put('/:id',
+//   tryCatch(classController.updateClass))
   
-R.delete('/:id',
-  tryCatch(classController.deleteClass))
+// R.delete('/:id',
+//   tryCatch(classController.deleteClass))
 
 module.exports = R

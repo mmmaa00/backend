@@ -4,21 +4,21 @@ const studentController = require('../controllers/student')
 const { tryCatch } = require('../middlewares/errorHandle')
 
 R.get('/',
-  tryCatch(studentController.getAllStudent))
+  tryCatch(studentController.getAll))
 
 R.get('/:id',
-  tryCatch(studentController.getStudentById))
+  tryCatch(studentController.getById))
 
-R.get('/:idClass',
-  tryCatch(studentController.getStudentInClass))
+// R.get('/class/:id',
+//   tryCatch(studentController.getStudentInClass))
 
-R.post('/',
-  tryCatch(studentController.createStudent))
+// R.post('/',
+//   tryCatch(studentController.createStudent))
 
-R.put('/:id',
-  tryCatch(studentController.updateStudent))
+// R.put('/:id',
+//   tryCatch(studentController.updateStudent))
   
-R.delete('/:id',
-  tryCatch(studentController.deleteStudent))
+// R.delete('/:id',
+//   tryCatch(studentController.deleteStudent))
 
 module.exports = R
